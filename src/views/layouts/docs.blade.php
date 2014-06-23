@@ -11,15 +11,42 @@
     {{ HTML::style('packages/mosaicpro/html-generators/bootstrap/css/bootstrap.min.css'); }}
     {{ HTML::style('packages/mosaicpro/html-generators/css/style.css'); }}
 
+    <!-- Font Awesome CDN -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        body {
+            padding-top:70px;
+        }
+    </style>
+
 </head>
 <body>
 
+    {{
+        Navbar::myNav()
+            ->isInverse()
+            ->isFixedTop()
+            ->setBrand('HTML Generators')
+            ->addNav(
+                Nav::myNav()
+                    ->isNavbarLeft()
+                    ->addNav(HTML::link('#', 'Setup'))
+                    ->addNav(HTML::link('#', 'Tutorials'))
+                    ->addNav(HTML::link('#', 'Documentation'))
+            )
+            ->addNav(
+                Button::danger('Buy Now <i class="fa fa-credit-card"></i>')
+                    ->isButton()
+                    ->isNavbarRight()
+            )
+    }}
     <div class="container">
 
         @if(Session::has('message'))
