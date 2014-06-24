@@ -33,13 +33,13 @@
         Navbar::myNav()
             ->isInverse()
             ->isFixedTop()
-            ->setBrand('HTML Generators')
+            ->setBrand('HTML Generators','/')
             ->addNav(
                 Nav::myNav()
                     ->isNavbarLeft()
-                    ->addNav(HTML::link('#', 'Setup'))
-                    ->addNav(HTML::link('#', 'Tutorials'))
-                    ->addNav(HTML::link('#', 'Documentation'))
+                    ->addNav(HTML::link('/setup', 'Setup'))
+                    ->addNav(HTML::link('/tutorials', 'Tutorials'))
+                    ->addNav(HTML::link('/documentation', 'Documentation'))
             )
             ->addNav(
                 Button::danger('Buy Now <i class="fa fa-credit-card"></i>')
@@ -53,26 +53,35 @@
         <p class="alert alert-info">{{ Session::get('message') }}</p>
         @endif
 
+        @if (Request::is('documentation') || Request::is('documentation/*'))
         <div class="row">
             <div class="col-md-9">
-                @yield('content')
-            </div>
-            <div class="col-md-3">
-                <?php
-                $components = ['accordion', 'dropdown', 'button group', 'button', 'form field', 'list group', 'panel', 'media', 'alert', 'nav', 'navbar', 'table', 'progress bar', 'modal', 'tab', 'carousel', 'grid'];
-                $list = ListGroup::components();
-                foreach($components as $component) {
-                    $todo = stristr($component, '(todo)');
-                    if ($todo) $component = str_replace(" (todo)", "", $component);
-                    $url = implode("-", str_word_count($component, 1));
-                    $list->addLink(url('html-generators/' . $url), ucwords($component))->isActive(Request::segment(2) == $url)->setBadge($todo);
-                }
-                ?>
+        @endif
 
-                {{ $list }}
+        <!-- CONTENT -->
+        @yield('content')
+
+        @if (Request::is('documentation') || Request::is('documentation/*'))
             </div>
+            <!-- END COL-MD-9 -->
+
+                <div class="col-md-3">
+                    <?php
+                    $components = ['accordion', 'dropdown', 'button group', 'button', 'form field', 'list group', 'panel', 'media', 'alert', 'nav', 'navbar', 'table', 'progress bar', 'modal', 'tab', 'carousel', 'grid'];
+                    $list = ListGroup::components();
+                    foreach($components as $component) {
+                        $todo = stristr($component, '(todo)');
+                        if ($todo) $component = str_replace(" (todo)", "", $component);
+                        $url = implode("-", str_word_count($component, 1));
+                        $list->addLink(url('documentation/' . $url), ucwords($component))->isActive(Request::segment(2) == $url)->setBadge($todo);
+                    }
+                    ?>
+                    {{ $list }}
+                </div>
+                <!-- END COL-MD-3 -->
         </div>
-
+        <!-- END ROW -->
+        @endif
     </div>
 
     {{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
