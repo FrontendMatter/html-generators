@@ -50,8 +50,12 @@
                 $formbuilder->get_select_multiple('select_name[]', 'Select Label', ['value2', 'value3'], ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']) .
                 "<pre>FormBuilder::select_multiple('select_name[]', 'Select Label', ['value2', 'value3'], ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']);</pre><hr/>" .
                 $formbuilder->get_select_hhmmss('name', 'Select Time (hh:mm:ss)', ['hh' => '01', 'mm' => '30', 'ss' => '25']) .
-                "<pre>FormBuilder::select_hhmmss('name', 'Select Time (hh:mm:ss)', ['hh' => '01', 'mm' => '30', 'ss' => '25']);</pre><hr/>"
-            )
+                "<pre>FormBuilder::select_hhmmss('name', 'Select Time (hh:mm:ss)', ['hh' => '01', 'mm' => '30', 'ss' => '25']);</pre><hr/>" .
+                $formbuilder->get_select_range('name', 'Select from range', 10, [1, 100]) .
+                "<pre>FormBuilder::select_range('name', 'Select from range', 10, [1, 100]);</pre><hr/>" .
+                $formbuilder->get_select_range('name', 'Select from range with format', 10, [1, 100], '%03d') .
+                "<pre>FormBuilder::select_range('name', 'Select from range with format', 10, [1, 100], '%03d');</pre>"
+)
     }}
 
 
