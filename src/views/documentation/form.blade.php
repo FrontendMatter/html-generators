@@ -12,11 +12,7 @@
                 FormField::username() .
                 FormField::password() .
                 FormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'rows' => 4]) .
-"<pre>
-FormField::username();
-FormField::password();
-FormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'rows' => 4]);
-</pre>"
+                "<pre>\nFormField::username();\nFormField::password();\nFormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'rows' => 4]);</pre>"
             )
     }}
 
@@ -50,7 +46,11 @@ FormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'r
             ->addTitle('Select')
             ->addBody(
                 $formbuilder->get_select('select_name', 'Select Label', 'value2', ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']) .
-                "<pre>FormBuilder::select('select_name', 'Select Label', 'value2', ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']);</pre>"
+                "<pre>FormBuilder::select('select_name', 'Select Label', 'value2', ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']);</pre><hr/>" .
+                $formbuilder->get_select_multiple('select_name[]', 'Select Label', ['value2', 'value3'], ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']) .
+                "<pre>FormBuilder::select_multiple('select_name[]', 'Select Label', ['value2', 'value3'], ['value1' => 'value1 label', 'value2' => 'value2 label', 'value3' => 'value3 label', 'value4' => 'value4 label', 'value5' => 'value5 label']);</pre><hr/>" .
+                $formbuilder->get_select_hhmmss('name', 'Select Time (hh:mm:ss)', ['hh' => '01', 'mm' => '30', 'ss' => '25']) .
+                "<pre>FormBuilder::select_hhmmss('name', 'Select Time (hh:mm:ss)', ['hh' => '01', 'mm' => '30', 'ss' => '25']);</pre><hr/>"
             )
     }}
 
