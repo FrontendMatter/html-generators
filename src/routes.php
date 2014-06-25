@@ -1,13 +1,11 @@
 <?php
 Route::get('/', function() {
-   return View::make("html-generators::index");
+   return View::make("html-generators::documentation.index");
 });
-
 
 Route::get('/setup', function() {
     return View::make("html-generators::setup");
 });
-
 
 Route::get('/setup/install-composer', function() {
     return View::make("html-generators::setup.install-composer");

@@ -70,7 +70,10 @@ class Navbar extends WidgetCreatorAbstract
 
         $brand = '';
         if ($this->getBrand())
-            $brand = self::$html->decode(self::$html->link('#', $this->getBrand(), ['class' => 'navbar-brand']));
+        {
+            $brand = $this->getBrand();
+            $brand = self::$html->decode(self::$html->link($brand[1], $brand[0], ['class' => 'navbar-brand']));
+        }
 
         $this->addHeader($this->createWrapper('div', ['class' => 'navbar-header'], $toggle . $brand));
     }
