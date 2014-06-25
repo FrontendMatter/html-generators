@@ -35,6 +35,7 @@ class HtmlGeneratorsServiceProvider extends ServiceProvider {
         AliasLoader::getInstance()->alias('Button', 'Mosaicpro\HtmlGenerators\Button\Button');
         AliasLoader::getInstance()->alias('ButtonGroup', 'Mosaicpro\HtmlGenerators\ButtonGroup\ButtonGroup');
         AliasLoader::getInstance()->alias('ButtonToolbar', 'Mosaicpro\HtmlGenerators\ButtonGroup\ButtonToolbar');
+        AliasLoader::getInstance()->alias('FormBuilder', 'Mosaicpro\HtmlGenerators\Form\FormBuilder');
         AliasLoader::getInstance()->alias('FormField', 'Mosaicpro\HtmlGenerators\Form\FormField');
         AliasLoader::getInstance()->alias('Checkbox', 'Mosaicpro\HtmlGenerators\Form\Checkbox');
         AliasLoader::getInstance()->alias('Grid', 'Mosaicpro\HtmlGenerators\Grid\Grid');

@@ -67,7 +67,7 @@
 
                 <div class="col-md-3">
                     <?php
-                    $components = ['accordion', 'dropdown', 'button group', 'button', 'form field', 'list group', 'panel', 'media', 'alert', 'nav', 'navbar', 'table', 'progress bar', 'modal', 'tab', 'carousel', 'grid'];
+                    $components = ['accordion', 'dropdown', 'button group', 'button', 'form', 'list group', 'panel', 'media', 'alert', 'nav', 'navbar', 'table', 'progress bar', 'modal', 'tab', 'carousel', 'grid'];
                     $list = ListGroup::components();
                     foreach($components as $component) {
                         $todo = stristr($component, '(todo)');

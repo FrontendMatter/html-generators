@@ -150,7 +150,7 @@ class FormBuilder
         if (!empty($label)) $output[] = '<p><strong>' . $label . '</strong></p>';
         $output[] = '<div class="btn-group btn-group-sm" data-toggle="buttons">';
         foreach($values as $value_id => $value_label) {
-            $checked = (string) $value_id == (string) $value;
+            $checked = is_array($value) ? in_array( (string) $value_id, $value) : (string) $value_id == (string) $value;
             $output[] = $this->{"get_$type" . "_single_button"}($name, $value_label, $value_id, $checked, $attributes);
         }
         $output[] = '</div>';
