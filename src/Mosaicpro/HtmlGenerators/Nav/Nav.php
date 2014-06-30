@@ -47,11 +47,13 @@ class Nav extends WidgetCreatorAbstract
         if ($this->attributeMatch('dropdown', $args)) $element = $item[0];
         else {
             $content = $item[0];
-            if (count($item) == 2)
+            if (count($item) > 1)
             {
                 $href = $item[0];
                 if (!starts_with($href, "http")) $href = '#' . $href;
-                $content = IoC::getContainer('html')->link($href, $item[1]);
+                $link_attributes = [];
+                if (isset($item[2])) $link_attributes = $item[2];
+                $content = IoC::getContainer('html')->link($href, $item[1], $link_attributes);
             }
 
             $element = $this->createWrapper('li', $args, $content);
