@@ -53,6 +53,7 @@ class Nav extends WidgetCreatorAbstract
                 if (!starts_with($href, "http")) $href = '#' . $href;
                 $link_attributes = [];
                 if (isset($item[2])) $link_attributes = $item[2];
+                if ($this->getData('Tabs') && !isset($item[2])) $link_attributes['data-toggle'] = 'tab';
                 $content = IoC::getContainer('html')->link($href, $item[1], $link_attributes);
             }
 
