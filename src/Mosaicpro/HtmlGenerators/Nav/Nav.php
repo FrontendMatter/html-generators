@@ -1,5 +1,6 @@
 <?php namespace Mosaicpro\HtmlGenerators\Nav;
 
+use Mosaicpro\HtmlGenerators\Core\IoC;
 use Mosaicpro\HtmlGenerators\Core\WidgetCreatorAbstract;
 
 /**
@@ -44,7 +45,17 @@ class Nav extends WidgetCreatorAbstract
     {
         $args = $this->attributeAddMatchClass('active', $args);
         if ($this->attributeMatch('dropdown', $args)) $element = $item[0];
-        else $element = $this->createWrapper('li', $args, $item[0]);
+        else {
+            $content = $item[0];
+            if (count($item) == 2)
+            {
+                $href = $item[0];
+                if (!starts_with($href, "http")) $href = '#' . $href;
+                $content = IoC::getContainer('html')->link($href, $item[1]);
+            }
+
+            $element = $this->createWrapper('li', $args, $content);
+        }
         $this->add($element);
     }
 
