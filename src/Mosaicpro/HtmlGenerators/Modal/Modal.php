@@ -93,7 +93,15 @@ class Modal extends WidgetCreatorAbstract
         $modalBody = $this->processBody();
         $modalFooter = $this->processFooter();
         $modalContent = $this->createWrapper('div', ['class' => 'modal-content'], $modalHeader . $modalBody . $modalFooter);
-        $modalDialog = $this->createWrapper('div', ['class' => 'modal-dialog'], $modalContent);
+
+        $modalDialogAttributes = ['class' => 'modal-dialog'];
+        $modalDialogAttributesClasses = ['sm', 'lg'];
+
+        foreach ($modalDialogAttributesClasses as $mdac)
+            if ($this->getData(ucwords($mdac)))
+                $modalDialogAttributes = array_merge($modalDialogAttributes, ['class' => 'modal-' . $mdac]);
+
+        $modalDialog = $this->createWrapper('div', $modalDialogAttributes, $modalContent);
         $this->add($modalDialog);
     }
 
