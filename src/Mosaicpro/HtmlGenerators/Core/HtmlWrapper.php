@@ -44,16 +44,34 @@ class HtmlWrapper implements HtmlWrapperInterface
 
     /**
      * Compose element attributes
-     *
      * @param $attributes
      * @param string $attributeKey
      * @internal param string $attribute
+     * @return bool
      */
     protected function makeAttribute($attributes, $attributeKey = '')
     {
-        $value = array_get($attributes, $attributeKey);
+        $value = false;
+        $key = $attributeKey;
+
+        $wcard = starts_with($attributeKey, "*");
+        if ($wcard)
+        {
+            foreach ($attributes as $ak => $av)
+            {
+                if (starts_with($ak, str_replace("*", "", $attributeKey)))
+                {
+                    $value = $av;
+                    $key = $ak;
+                }
+            }
+        }
+        else
+            $value = array_get($attributes, $attributeKey);
+
+        if (!$value) return false;
         $value = is_array($value) ? implode(" ", $value) : $value;
-        $value = !empty($value) || $value === 0 ? $attributeKey . '="' . $value . '"' : false;
+        $value = !empty($value) || $value === 0 ? $key . '="' . $value . '"' : false;
 
         if ($value) $this->attributes[] = $value;
     }
@@ -77,16 +95,9 @@ class HtmlWrapper implements HtmlWrapperInterface
             'value',
             'checked',
             'selected',
-            'data-toggle',
-            'data-parent',
-            'data-target',
-            // Carousel
-            'data-slide-to',
-            'data-ride',
+            '*data-',
             // ProgressBar
-            'aria-valuenow',
-            'aria-valuemin',
-            'aria-valuemax',
+            '*aria-valuenow',
             // tables
             'colspan'
         ];
