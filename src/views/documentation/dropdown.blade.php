@@ -1,4 +1,4 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 
@@ -6,54 +6,54 @@
     <hr/>
     <p>By default, dropdowns will be wrapped in <code>&lt;div&gt;</code> elements.</p>
 
-    {{
+    {!!
         Dropdown::myDropdown()
             ->addButton(Button::success('My dropdown')->isDropdown())
-            ->addMenu(HTML::link('#', 'Dropdown menu item'))
+            ->addMenu(Html::link('#', 'Dropdown menu item'))
             ->addMenuHeader('My heading')
             ->addMenuDivider()
-            ->addMenu(HTML::link('#', 'Active Dropdown menu'))
+            ->addMenu(Html::link('#', 'Active Dropdown menu'))
                 ->isActive()
-            ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-            ->addMenu(HTML::link('#', 'Yet another menu item'))->__toString()
+            ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+            ->addMenu(Html::link('#', 'Yet another menu item'))->__toString()
 
-    }}
+    !!}
 
     <hr/>
 
 <pre>
 Dropdown::myDropdown()
     ->addButton(Button::success('My dropdown')->isDropdown())
-    ->addMenu(HTML::link('#', 'Dropdown menu item'))
+    ->addMenu(Html::link('#', 'Dropdown menu item'))
     ->addMenuHeader('My heading')
     ->addMenuDivider()
-    ->addMenu(HTML::link('#', 'Active Dropdown menu'))
+    ->addMenu(Html::link('#', 'Active Dropdown menu'))
         ->isActive()
-    ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-    ->addMenu(HTML::link('#', 'Yet another menu item'))
+    ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+    ->addMenu(Html::link('#', 'Yet another menu item'))
 </pre>
 
     <h3>Dropdown buttons</h3>
     <hr/>
 
-    {{
+    {!!
     Dropdown::myDropdown()
         ->isButtonGroup()
         ->addButton(Button::success('Dropdown button')->isDropdown())
-        ->addMenu(HTML::link('#', 'Dropdown menu item'))
-        ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-        ->addMenu(HTML::link('#', 'Yet another menu item'))
-    }}
+        ->addMenu(Html::link('#', 'Dropdown menu item'))
+        ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+        ->addMenu(Html::link('#', 'Yet another menu item'))
+    !!}
 
-    {{
+    {!!
     Dropdown::myDropdown()
         ->isButtonGroup()
         ->pullRight()
         ->addButton(Button::primary('Aligned right')->isDropdown())
-        ->addMenu(HTML::link('#', 'Dropdown menu item'))
-        ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-        ->addMenu(HTML::link('#', 'Yet another menu item'))
-    }}
+        ->addMenu(Html::link('#', 'Dropdown menu item'))
+        ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+        ->addMenu(Html::link('#', 'Yet another menu item'))
+    !!}
 
 <hr/>
 
@@ -83,4 +83,4 @@ Dropdown::myDropdown()
     ->addMenu( ... )
 </pre>
 
-@stop
+@endsection

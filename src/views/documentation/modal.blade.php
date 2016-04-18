@@ -1,10 +1,10 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 	
 <h1>Modal</h1>
 <hr/>
-{{
+{!!
     Modal::myModal()
         ->isFade()
         ->addTitle('The modal heading title')
@@ -13,9 +13,9 @@
             Button::primary('Save')->dismissModal() .
             Button::regular('Close')->dismissModal()
         )
-}}
+!!}
 
-<p>{{ Button::primary('Launch modal')->openModal('#Modal_myModal') }}</p>
+<p>{!! Button::primary('Launch modal')->openModal('#Modal_myModal') !!}</p>
 
 <pre>
 Modal::myModal()

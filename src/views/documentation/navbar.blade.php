@@ -1,4 +1,4 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 	
@@ -7,7 +7,7 @@
 
 <h3>Default</h3>
 
-    {{
+    {!!
         Navbar::myNav()
             ->isDefault()
             ->isFluid()
@@ -15,8 +15,8 @@
             ->addNav(
                 Nav::myNav()
                     ->isNavbarLeft()
-                    ->addNav(HTML::link('#', 'Home'))
-                    ->addNav(HTML::link('#', 'Messages'))
+                    ->addNav(Html::link('#', 'Home'))
+                    ->addNav(Html::link('#', 'Messages'))
             )
             ->addNav(
                 Form::open(['class' => 'navbar-form navbar-left visible-lg']) .
@@ -32,15 +32,15 @@
                             ->isListItem()
                             ->isActive()
                             ->addButton(Button::regular('My dropdown')->isDropdown()->isLink())
-                            ->addMenu(HTML::link('#', 'Dropdown menu item'))
+                            ->addMenu(Html::link('#', 'Dropdown menu item'))
                             ->addMenuHeader('My heading')
                             ->addMenuDivider()
-                            ->addMenu(HTML::link('#', 'Active Dropdown menu'))->isActive()
-                            ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-                            ->addMenu(HTML::link('#', 'Yet another menu item'))
+                            ->addMenu(Html::link('#', 'Active Dropdown menu'))->isActive()
+                            ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+                            ->addMenu(Html::link('#', 'Yet another menu item'))
                     )
             )
-    }}
+    !!}
 
 <h3>Usage</h3>
 <pre>
@@ -58,7 +58,7 @@ Navbar::myNav()
 <hr/>
 
 <h3>Navbar text, Non-nav links &amp; Buttons</h3>
-{{
+{!!
     Navbar::myNav2()
         ->isDefault()
         ->isFluid()
@@ -66,7 +66,7 @@ Navbar::myNav()
         ->addNav( Navbar::text('Signed in as ' . Navbar::link('#', 'Laza Bogdan')) )
         ->addNav( Navbar::textRight( Navbar::link('#', 'My account')) )
         ->addNav( Button::regular('Logout')->isButton()->isNavbarRight() )
-}}
+!!}
 
 <pre>
 Navbar::myNav()
@@ -89,7 +89,7 @@ Navbar::myNav()
 <hr/>
 
 <h3>Navbar Inverse</h3>
-{{
+{!!
     Navbar::myNav3()
         ->isInverse()
         ->isFluid()
@@ -97,7 +97,7 @@ Navbar::myNav()
         ->addNav( Navbar::text('Signed in as ' . Navbar::link('#', 'Laza Bogdan')) )
         ->addNav( Navbar::textRight( Navbar::link('#', 'My account')) )
         ->addNav( Button::primary('Logout')->isButton()->isNavbarRight() )
-}}
+!!}
 
 <pre>
 Navbar::myNav()
@@ -108,4 +108,4 @@ Navbar::myNav()
     ->addNav( Navbar::textRight( Navbar::link('#', 'My account')) )
     ->addNav( Button::primary('Logout')->isButton()->isNavbarRight() )
 </pre>
-@stop
+@endsection

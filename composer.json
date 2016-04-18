@@ -1,6 +1,6 @@
 {
-    "name": "mosaicpro/html-generators",
-    "version": "1.0.0",
+    "name": "themekit/html-generators",
+    "version": "0.1.0",
     "description": "Bootstrap 3 HTML Markup Generators",
     "authors": [
         {
@@ -9,20 +9,20 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.2.*",
-        "illuminate/html": "4.2.*",
-        "illuminate/routing": "4.2.*",
-        "illuminate/events": "4.2.*",
-        "illuminate/container": "4.2.*",
-        "illuminate/config": "4.2.*"
+		"php": ">=5.5.9",
+        "illuminate/support": "5.2.*",
+        "laravelcollective/html": "5.2.*",
+        "illuminate/routing": "5.2.*",
+        "illuminate/events": "5.2.*",
+        "illuminate/container": "5.2.*",
+        "illuminate/config": "5.2.*"
     },
     "autoload": {
         "classmap": [
             "src/config"
         ],
         "psr-0": {
-            "Mosaicpro\\HtmlGenerators": "src/"
+            "ThemeKit\\HtmlGenerators": "src/"
         }
     },
     "minimum-stability": "stable"

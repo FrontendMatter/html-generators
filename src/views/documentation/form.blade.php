@@ -1,11 +1,11 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 
     <h1>Forms</h1>
     <hr/>
 
-    {{
+    {!!
         Panel::make('default')
             ->addTitle('FormField')
             ->addBody(
@@ -14,23 +14,23 @@
                 FormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'rows' => 4]) .
                 "<pre>\nFormField::username();\nFormField::password();\nFormField::myCustomTextarea(['type' => 'textarea', 'label' => 'Custom Label', 'rows' => 4]);</pre>"
             )
-    }}
+    !!}
 
 <?php
-    use Mosaicpro\HtmlGenerators\Form\FormBuilder;
+    use ThemeKit\HtmlGenerators\Form\FormBuilder;
     $formbuilder = new FormBuilder;
     ?>
 
-    {{
+    {!!
         Panel::make('default')
             ->addTitle('Input')
             ->addBody(
                 $formbuilder->get_input('input_name', 'Input Label', 'The value') .
                 "<pre>FormBuilder::input('input_name', 'Input Label', 'The value');</pre>"
             )
-    }}
+    !!}
 
-    {{
+    {!!
         Panel::make('default')
             ->addTitle('Toggle Buttons')
             ->addBody(
@@ -39,9 +39,9 @@
                 $formbuilder->get_checkbox_buttons('name[]', 'Checkbox Buttons', ['optionA', 'optionB'], ['optionA' => 'Option A', 'optionB' => 'Option B', 'optionC' => 'Option C']) . "<br/><br/>" .
                 "<pre>FormBuilder::checkbox_buttons('name[]', 'Checkbox Buttons', ['optionA', 'optionB'], ['optionA' => 'Option A', 'optionB' => 'Option B', 'optionC' => 'Option C']);</pre>"
             )
-    }}
+    !!}
 
-    {{
+    {!!
         Panel::make('default')
             ->addTitle('Select')
             ->addBody(
@@ -55,8 +55,8 @@
                 "<pre>FormBuilder::select_range('name', 'Select from range', 10, [1, 100]);</pre><hr/>" .
                 $formbuilder->get_select_range('name', 'Select from range with format', 10, [1, 100], '%03d') .
                 "<pre>FormBuilder::select_range('name', 'Select from range with format', 10, [1, 100], '%03d');</pre>"
-)
-    }}
+            )
+    !!}
 
 
-@stop
+@endsection

@@ -8,8 +8,8 @@
     <meta name="author" content="">
     <title>Boilerplate</title>
 
-    {{ HTML::style('packages/mosaicpro/html-generators/bootstrap/css/bootstrap.min.css'); }}
-    {{ HTML::style('packages/mosaicpro/html-generators/css/style.css'); }}
+    {{ Html::style('vendor/html-generators/bootstrap/css/bootstrap.min.css') }}
+    {{ Html::style('vendor/html-generators/css/style.css') }}
 
     <!-- Font Awesome CDN -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -88,24 +88,24 @@
 </head>
 <body>
 
-    {{
+    {!!
         Navbar::docsNav()
             ->isInverse()
             ->isFixedTop()
-            ->setBrand(['<img src="http://cdn2.mosaicpro.biz/smart/php/assets/images/logo/logo.jpg" /> PHP Frontend Builder', '/'])
+            ->setBrand(['<img src="https://0.s3.envato.com/files/104864177/mosaic-logo.png" /> HTML Generators', '/'])
             ->addNav(
                 Nav::myNav()
                     ->isNavbarLeft()
-                    ->addNav(HTML::link('/setup', 'Setup'))
-                    ->addNav(HTML::link('/tutorials', 'Tutorials'))
-                    ->addNav(HTML::link('/documentation/accordion', 'Documentation'))
+                    ->addNav(Html::link('/setup', 'Setup'))
+                    ->addNav(Html::link('/tutorials', 'Tutorials'))
+                    ->addNav(Html::link('/documentation/accordion', 'Documentation'))
             )
             ->addNav(
-                Button::danger('Buy Now <i class="fa fa-credit-card"></i>')
+                Button::success('Buy Now &nbsp; <i class="fa fa-fw fa-credit-card"></i>')
                     ->isButton()
                     ->isNavbarRight()
             )
-    }}
+    !!}
     <div class="container">
 
         @if(Session::has('message'))
@@ -129,39 +129,32 @@
                 $list = Nav::components();
                 foreach($components as $component) {
                     $url = implode("-", str_word_count($component, 1));
-                    $list->addNav(HTML::link(url('documentation/' . $url), ucwords($component)))->isActive($current_slug == $component);
+                    $list->addNav(Html::link(url('documentation/' . $url), ucwords($component)))->isActive($current_slug == $component);
                 }
                 ?>
                 <div class="bs-docs-sidebar">
                     <h4>Components</h4>
-                    {{
+                    {!!
                         Nav::make()
-                            ->addNav(HTML::link(url('documentation/accordion'), 'User Interface') . $list)->isActive(in_array($current_slug, $components))
-                            ->addNav(HTML::link(url('documentation/charts'), 'Charts'))->isActive(in_array($current_slug, ['charts']))
-                            ->addNav(HTML::link(url('documentation/maps'), 'Maps'))->isActive(in_array($current_slug, ['maps']))
-                    }}
+                            ->addNav(Html::link(url('documentation/accordion'), 'User Interface') . $list)->isActive(in_array($current_slug, $components))
+                            ->addNav(Html::link(url('documentation/charts'), 'Charts'))->isActive(in_array($current_slug, ['charts']))
+                            ->addNav(Html::link(url('documentation/maps'), 'Maps'))->isActive(in_array($current_slug, ['maps']))
+                    !!}
 
                     <hr/>
                     <h4>Getting started</h4>
 
-                    {{
+                    {!!
                     Nav::make()
-                        ->addNav(
-                            HTML::link(url('setup/install-composer'), 'Prerequisites') .
-                            Nav::make()
-                                ->addNav(HTML::link(url('setup/install-composer'), 'Install Composer'))->isActive(Request::is('setup/install-composer'))
-                        )->isActive(Request::is('setup/install-composer'))
-                        ->addNav(
-                            HTML::link(url('setup'), 'Setup PHP Frontend Builder')
-                        )->isActive(Request::is('setup'))
-                    }}
+                        ->addNav(Html::link(url('/'), 'Installation'))->isActive(Request::is('/'))
+                    !!}
 
                     <hr/>
                     <h4>Tutorials</h4>
 
-                    {{
-                        Nav::make()->addNav(HTML::link(url('tutorials'), 'Some tutorial category'))->isActive(Request::is('tutorials*'))
-                    }}
+                    {!!
+                        Nav::make()->addNav(Html::link(url('tutorials'), 'Some tutorial category'))->isActive(Request::is('tutorials*'))
+                    !!}
                 </div>
             </div>
             <!-- END COL-MD-3 -->
@@ -170,8 +163,8 @@
         <!-- END ROW -->
     </div>
 
-    {{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
-    {{ HTML::script('packages/mosaicpro/html-generators/bootstrap/js/bootstrap.min.js'); }}
+    {{ Html::script('//code.jquery.com/jquery-1.11.0.min.js') }}
+    {{ Html::script('vendor/html-generators/bootstrap/js/bootstrap.min.js') }}
     @yield('footer_scripts')
 </body>
 </html>

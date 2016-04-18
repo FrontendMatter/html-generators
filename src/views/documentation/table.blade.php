@@ -1,4 +1,4 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 
@@ -22,14 +22,14 @@ $header_simple = ['#', 'The name', 'The username', 'The email'];
 <h1>Table</h1>
 <hr/>
 
-{{
+{!!
     Table::make()
         ->isBordered()
         ->isStriped()
         ->isHover()
         ->addHeader($header_assoc)
         ->addBody($body_assoc)
-}}
+!!}
 
 <pre>
 Table::make()
@@ -54,13 +54,13 @@ Table::make()
 <hr/>
 <h3>Auto-generated header</h3>
 
-{{
+{!!
     Table::make()
         ->isBordered()
         ->isStriped()
         ->isHover()
         ->addBody($body_assoc)
-}}
+!!}
 
 <hr/>
 <pre>
@@ -79,7 +79,7 @@ Table::make()
 
 <h3>Custom columns &amp; data-binding</h3>
 
-{{
+{!!
     Table::make()
         ->isBordered()
         ->isStriped()
@@ -108,7 +108,7 @@ Table::make()
                     ->addAttributes(['class' => 'pull-right'])
             ]
         ])
-}}
+!!}
 
 <hr/>
 <pre>
@@ -143,4 +143,4 @@ Table::make()
         ]
     ])
 </pre>
-@stop
+@endsection

@@ -1,4 +1,4 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 <h1>Screencasts and Tutorials</h1>

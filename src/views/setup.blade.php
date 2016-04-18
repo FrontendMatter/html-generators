@@ -1,4 +1,4 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 
@@ -54,7 +54,7 @@ cp /path/to/downloaded/mosaicpro-html-generators-1.0.0.zip mosaicpro-packages/</
 <p>Add the following to the <code>providers</code> list in the <code>app/config/app.php</code> file:</p>
 <div class="codehilite"><pre><span class="c1">'providers' =&gt; array(</span>
 <span class="w">    </span><span class="o">...</span>
-<span class="w">    </span><span class="c1">'Mosaicpro\HtmlGenerators\HtmlGeneratorsServiceProvider',</span>
+<span class="w">    </span><span class="c1">'ThemeKit\HtmlGenerators\HtmlGeneratorsServiceProvider',</span>
 <span class="p">),</span>
 </pre></div>
 
@@ -70,4 +70,4 @@ cp /path/to/downloaded/mosaicpro-html-generators-1.0.0.zip mosaicpro-packages/</
         <a href="http://localhost/path/to/your/laravel/install/html-generators/accordion"></a><a href="http://localhost/path/to/your/laravel/install/html-generators/accordion" rel="nofollow">http://localhost/path/to/your/laravel/install/html-generators/accordion</a></p>
 </blockquote>
 
-@stop
+@endsection

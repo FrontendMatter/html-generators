@@ -1,16 +1,16 @@
-@extends("html-generators::layouts.docs")
+@extends('html-generators::layouts.docs')
 
 @section('content')
 	
 <h1>Button Group</h1>
 <hr/>
 
-    {{
+    {!!
         ButtonGroup::make()
             ->add(Button::regular('Left'))
             ->add(Button::regular('Middle'))
             ->add(Button::regular('Right'))
-    }}
+    !!}
 
 <hr/>
 <pre>
@@ -22,7 +22,7 @@ ButtonGroup::make()
 
 <h3>Button Toolbar</h3>
 
-    {{
+    {!!
         ButtonToolbar::make()
             ->add(
                 ButtonGroup::myGroup()
@@ -41,7 +41,7 @@ ButtonGroup::make()
                 ButtonGroup::myGroup()
                     ->add(Button::regular('8'))
             )
-    }}
+    !!}
 
 <hr/>
 
@@ -53,7 +53,7 @@ ButtonToolbar::myBar()
 
 <h3>Nesting</h3>
 
-{{
+{!!
     ButtonGroup::make()
         ->add(Button::regular('1'))
         ->add(Button::regular('2'))
@@ -61,11 +61,11 @@ ButtonToolbar::myBar()
             Dropdown::myDropdown()
                 ->isButtonGroup()
                 ->addButton(Button::primary('Dropdown')->isDropdown())
-                ->addMenu(HTML::link('#', 'Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Yet another menu item'))
+                ->addMenu(Html::link('#', 'Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Yet another menu item'))
         )
-}}
+!!}
 
 <hr/>
 <pre>
@@ -76,7 +76,7 @@ ButtonGroup::make()
 
 <h3>Vertical</h3>
 
-{{
+{!!
     ButtonGroup::make()
         ->isVertical()
         ->add(Button::regular('1'))
@@ -85,11 +85,11 @@ ButtonGroup::make()
             Dropdown::myDropdown()
                 ->isButtonGroup()
                 ->addButton(Button::primary('Dropdown')->isDropdown())
-                ->addMenu(HTML::link('#', 'Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Yet another menu item'))
+                ->addMenu(Html::link('#', 'Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Yet another menu item'))
         )
-}}
+!!}
 
 <hr/>
 <pre>
@@ -101,7 +101,7 @@ ButtonGroup::make()
 
 <h3>Justified</h3>
 
-{{
+{!!
     ButtonGroup::make()
         ->isJustified()
         ->add(Button::regular('1'))
@@ -110,11 +110,11 @@ ButtonGroup::make()
             Dropdown::myDropdown()
                 ->isButtonGroup()
                 ->addButton(Button::primary('Dropdown')->isDropdown())
-                ->addMenu(HTML::link('#', 'Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Another Dropdown menu item'))
-                ->addMenu(HTML::link('#', 'Yet another menu item'))
+                ->addMenu(Html::link('#', 'Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Another Dropdown menu item'))
+                ->addMenu(Html::link('#', 'Yet another menu item'))
         )
-}}
+!!}
 
 <hr/>
 <pre>
