@@ -96,9 +96,7 @@
             ->addNav(
                 Nav::myNav()
                     ->isNavbarLeft()
-                    ->addNav(Html::link('/setup', 'Setup'))
-                    ->addNav(Html::link('/tutorials', 'Tutorials'))
-                    ->addNav(Html::link('/documentation/accordion', 'Documentation'))
+                    ->addNav(Html::link('/documentation/accordion', 'Components'))
             )
             ->addNav(
                 Button::success('Buy Now &nbsp; <i class="fa fa-fw fa-credit-card"></i>')
@@ -133,15 +131,6 @@
                 }
                 ?>
                 <div class="bs-docs-sidebar">
-                    <h4>Components</h4>
-                    {!!
-                        Nav::make()
-                            ->addNav(Html::link(url('documentation/accordion'), 'User Interface') . $list)->isActive(in_array($current_slug, $components))
-                            ->addNav(Html::link(url('documentation/charts'), 'Charts'))->isActive(in_array($current_slug, ['charts']))
-                            ->addNav(Html::link(url('documentation/maps'), 'Maps'))->isActive(in_array($current_slug, ['maps']))
-                    !!}
-
-                    <hr/>
                     <h4>Getting started</h4>
 
                     {!!
@@ -150,11 +139,13 @@
                     !!}
 
                     <hr/>
-                    <h4>Tutorials</h4>
 
+                    <h4>Components</h4>
                     {!!
-                        Nav::make()->addNav(Html::link(url('tutorials'), 'Some tutorial category'))->isActive(Request::is('tutorials*'))
+                        Nav::make()
+                            ->addNav(Html::link(url('documentation/accordion'), 'User Interface') . $list)->isActive(in_array($current_slug, $components))
                     !!}
+
                 </div>
             </div>
             <!-- END COL-MD-3 -->

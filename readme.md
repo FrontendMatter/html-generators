@@ -1,5 +1,7 @@
 # Bootstrap HTML Generators for Laravel 5
 
+A PHP library that allows you to generate Bootstrap 3 HTML markup for UI components such as Buttons, Dropdowns, Accordions, Panels, Media, Alerts, Tabs, Navbars, Forms and others straight from PHP.
+
 ## Installation
 
 > **Prerequisites**: Composer, PHP >=5.5.9, Laravel 5.2
@@ -10,7 +12,7 @@
 
 ### 2. Install HTML Markup Generators
 
-	composer require themekit/html-generators:*
+	composer require themekit/html-generators
 
 ### 3. Register the service providers
 Add the following to the `providers` list in `config/app.php`:
